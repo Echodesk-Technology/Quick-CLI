@@ -39,7 +39,7 @@ setTimeout(() => {
             console.log(chalk.blue("Initializing Repo"))
            },1000)
            setTimeout(() => {
-            shell.exec(`git clone https://github.com/Echodesk-Technology/create-quick-app.git ${answers.projectName}`)
+            shell.exec(`git clone https://github.com/Echodesk-Technology/Quick-app.git ${answers.projectName}`)
             console.log(chalk.blueBright('New plugins coming soon'));
             console.log(chalk.blueBright('😀 Happy Coding'));
            },1400)
