@@ -40,10 +40,8 @@ setTimeout(() => {
            },1000)
            setTimeout(() => {
             shell.exec(`git clone https://github.com/Echodesk-Technology/create-quick-app.git ${answers.projectName}`)
-            shell.cd(`${answers.projectName}`)
             console.log(chalk.blueBright('New plugins coming soon'));
             console.log(chalk.blueBright('😀 Happy Coding'));
-            process.exit();
            },1400)
         }
     })
