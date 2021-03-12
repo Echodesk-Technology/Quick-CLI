@@ -31,7 +31,7 @@ npm install quickjs-app
 <p>Usage</p>
 
 ```
-quickjs-app
+create-quickjs-app
 ```
 
 
@@ -40,4 +40,3 @@ quickjs-app
 <a href="https://github.com/Echodesk-Technology/EchodeskTechnology/blob/main/README.md"><h3>MIT</h3></a>
 
 <h3>Copyright (c) 2021-present, Kehinde Akinsanya</h3>
-# Quick-CLI
