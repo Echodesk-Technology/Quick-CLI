@@ -26,7 +26,7 @@ Made with <g-emoji class="g-emoji" alias="heart" fallback-src="https://github.gi
 <p>Installation</p>
 
 ```
-npm install quickjs-app
+npm install -g quickjs-app
 ```
 
 <p>Usage</p>

@@ -34,7 +34,6 @@ setTimeout(() => {
     ])
     .then(answers => {
         if(answers["default"]) {
-            console.log(answers.projectName);
            console.log(chalk.blue("Creating Quick App"))
            setTimeout(() => {
             console.log(chalk.blue("Initializing Repo"))
@@ -50,9 +49,9 @@ setTimeout(() => {
     })
     .catch(error => {
         if (error.isTtyError) {
-            // Prompt couldn't be rendered in the current environment
+            console.log(error);
         } else {
-            // Something else went wrong
+            console.log(error);
         }
     });
     
