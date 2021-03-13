@@ -1,10 +1,10 @@
 {
-  "name": "quickjs-app",
-  "version": "1.5.0",
+  "name": "quickjs-app-cli",
+  "version": "1.8.0",
   "description": "QuickJS CLI",
   "main": "cli.js",
   "bin": {
-    "create-quickjs-app": "cli.js"
+    "quick": "cli.js"
   },
   "keywords": [
     "cli",

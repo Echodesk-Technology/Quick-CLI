@@ -32,7 +32,7 @@ npm install -g quickjs-app
 <p>Usage</p>
 
 ```
-create-quickjs-app
+quick create "project name"
 ```
 
 
