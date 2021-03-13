@@ -4,12 +4,13 @@ const chalk = require('chalk');
 const inquirer = require('inquirer');
 const program = require("commander");
 const figlet = require("figlet");
+const ip = require("ip");
 const { alias } = require('commander');
 if (!shell.which('git')) {
     shell.echo('Sorry, this create-quick-app requires git');
     shell.exit(1);
 }
-console.log(chalk.blue('Quick CLI 1.8.0'));
+console.log(chalk.blue('Quick CLI 2.0.0'));
 
 
 figlet('QUICK JS!!', function (err, data) {
@@ -24,7 +25,7 @@ figlet('QUICK JS!!', function (err, data) {
 
 
 setTimeout(() => {
-    program.version("1.8.0");
+    program.version("2.0.0");
 
     program
     .command("start")
@@ -76,7 +77,6 @@ setTimeout(() => {
                 setTimeout(() => {
                     
                     shell.exec(`git clone https://github.com/Echodesk-Technology/Quick-app.git ${projectName}`)
-                    shell.cd(projectName)
                     console.log(chalk.blueBright('New plugins coming soon'));
                     console.log(chalk.blueBright('😀 Happy Coding'));
                 }, 1400)
@@ -84,22 +84,32 @@ setTimeout(() => {
     program
         .command("install")
          .alias("i")
-        .description("Install Dependecies | must be in the project folder")
+        .description("Install Dependencies | must be in the project folder")
         .action(() => {
-            console.log(chalk.blueBright('Installing dependencies'));
+            console.log(chalk.blueBright('Installing Dependencies'));
             shell.exec("npm run install")
         })
     program
         .command("serve")
         .alias("s")
-        .description("Starting development server | must be in the project folder")
+        .description("Start development server | must be in the project folder")
         .action(() => {
+            console.log(chalk.blueBright('Starting development server'));
             shell.exec("npm run serve")
         })
+        program
+        .command("develop")
+        .alias("d")
+        .description("Bundle your app with webpack | must be in the project folder")
+        .action(() => {
+            console.log(chalk.blueBright('Starting development bundle'));
+            shell.exec("npm run develop")
+        })
+
     program
         .command("build")
         .alias("b")
-        .description("Building project to production | must be in the project folder")
+        .description("Build project to production | must be in the project folder")
         .action(() => {
             console.log(chalk.blueBright('Building project to production'));
             shell.exec("npm run build")
