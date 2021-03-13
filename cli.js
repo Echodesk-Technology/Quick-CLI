@@ -10,7 +10,7 @@ if (!shell.which('git')) {
     shell.echo('Sorry, this create-quick-app requires git');
     shell.exit(1);
 }
-console.log(chalk.blue('Quick CLI 2.0.0'));
+console.log(chalk.blue('Quick CLI 2.1.0'));
 
 
 figlet('QUICK JS!!', function (err, data) {
@@ -25,7 +25,7 @@ figlet('QUICK JS!!', function (err, data) {
 
 
 setTimeout(() => {
-    program.version("2.0.0");
+    program.version("2.1.0");
 
     program
     .command("start")
@@ -87,7 +87,7 @@ setTimeout(() => {
         .description("Install Dependencies | must be in the project folder")
         .action(() => {
             console.log(chalk.blueBright('Installing Dependencies'));
-            shell.exec("npm run install")
+            shell.exec("npm install")
         })
     program
         .command("serve")
