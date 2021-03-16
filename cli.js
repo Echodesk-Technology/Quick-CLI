@@ -14,6 +14,7 @@ if (!shell.which('git')) {
     shell.exit(1);
 }
 
+console.log(chalk.blue('Quick CLI 2.6.0'));
 
 figlet('QUICK JS!!', function (err, data) {
     if (err) {
@@ -27,7 +28,7 @@ figlet('QUICK JS!!', function (err, data) {
 
 
 setTimeout(() => {
-    program.version("2.4.0");
+    program.version("2.6.0");
 
     program
         .command("start")
