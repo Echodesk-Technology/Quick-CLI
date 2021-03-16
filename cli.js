@@ -1,16 +1,18 @@
 #!/usr/bin/env node
+
 const shell = require('shelljs');
 const chalk = require('chalk');
 const inquirer = require('inquirer');
 const program = require("commander");
 const figlet = require("figlet");
 const ip = require("ip");
+const ora = require("ora")
 const { alias } = require('commander');
+const spinner = ora()
 if (!shell.which('git')) {
     shell.echo('Sorry, this create-quick-app requires git');
     shell.exit(1);
 }
-console.log(chalk.blue('Quick CLI 2.1.0'));
 
 
 figlet('QUICK JS!!', function (err, data) {
@@ -25,65 +27,71 @@ figlet('QUICK JS!!', function (err, data) {
 
 
 setTimeout(() => {
-    program.version("2.1.0");
+    program.version("2.4.0");
 
     program
-    .command("start")
-    .description("Create a new quickjs project | projectName prompted")
-    .action(() => {
-    inquirer
-        .prompt([
-            {
-                name: "projectName",
-                message: chalk.yellowBright('Project name'),
-            },
-            {
-                name: "default",
-                message: chalk.yellowBright('(babel, typescript, webpack)'),
-                default: chalk.green("default")
-            },
-        ])
-        .then(answers => {
-            if (answers["default"]) {
-                console.log(chalk.blue("Creating Quick App"))
-                setTimeout(() => {
-                    console.log(chalk.blue("Initializing Repo"))
-                }, 1000)
-                setTimeout(() => {
-                    shell.exec(`git clone https://github.com/Echodesk-Technology/Quick-app.git ${answers.projectName}`)
-                    console.log(chalk.blueBright('New plugins coming soon'));
-                    console.log(chalk.blueBright('😀 Happy Coding'));
-                }, 1400)
-            }
+        .command("start")
+        .description("Create a new quickjs project | projectName prompted")
+        .action(() => {
+            inquirer
+                .prompt([{
+                    name: "projectName",
+                    message: chalk.yellowBright('Project name'),
+                },
+                {
+                    name: "default",
+                    message: chalk.yellowBright('(babel, typescript, webpack)'),
+                    default: chalk.green("default")
+                },
+                ])
+                .then(answers => {
+                    if (answers["default"]) {
+                        spinner.start()
+                        spinner.text = chalk.blue("Creating a Quickjs App")
+                        setTimeout(() => {
+                            spinner.text = chalk.blue("Cloning create-quick-app from github")
+                        }, 2000)
+                        setTimeout(() => {
+                            spinner.stop()
+                            shell.exec(`git clone https://github.com/Echodesk-Technology/Quick-app.git ${answers.projectName}`)
+                        }, 5000);
+                        setTimeout(() => {
+                            spinner.stop()
+                            console.log(chalk.greenBright('😀 Happy Coding'))
+                        }, 6000)
+                    }
+                })
+                .catch(error => {
+                    if (error.isTtyError) {
+                        console.log(error);
+                    } else {
+                        console.log(error);
+                    }
+                });
         })
-        .catch(error => {
-            if (error.isTtyError) {
-                console.log(error);
-            } else {
-                console.log(error);
-            }
-        });
-    })
 
     program
         .command("create <projectName>")
-         .alias("c")
+        .alias("c")
         .description("Create a new quickjs project")
         .action((projectName) => {
-            console.log(chalk.blue("Creating a Quickjs App"))
-                setTimeout(() => {
-                    console.log(chalk.blue("Initializing Repo"))
-                }, 1000)
-                setTimeout(() => {
-                    
-                    shell.exec(`git clone https://github.com/Echodesk-Technology/Quick-app.git ${projectName}`)
-                    console.log(chalk.blueBright('New plugins coming soon'));
-                    console.log(chalk.blueBright('😀 Happy Coding'));
-                }, 1400)
+            spinner.start()
+            spinner.text = chalk.blue("Creating a Quickjs App")
+            setTimeout(() => {
+                spinner.text = chalk.blue("Cloning create-quick-app from github")
+            }, 2000)
+            setTimeout(() => {
+                spinner.stop()
+                shell.exec(`git clone https://github.com/Echodesk-Technology/Quick-app.git ${projectName}`)
+            }, 5000);
+            setTimeout(() => {
+                spinner.stop()
+                console.log(chalk.greenBright('😀 Happy Coding'))
+            }, 6000)
         });
     program
         .command("install")
-         .alias("i")
+        .alias("i")
         .description("Install Dependencies | must be in the project folder")
         .action(() => {
             console.log(chalk.blueBright('Installing Dependencies'));
@@ -97,7 +105,7 @@ setTimeout(() => {
             console.log(chalk.blueBright('Starting development server'));
             shell.exec("npm run serve")
         })
-        program
+    program
         .command("develop")
         .alias("d")
         .description("Bundle your app with webpack | must be in the project folder")
@@ -115,6 +123,6 @@ setTimeout(() => {
             shell.exec("npm run build")
         })
 
-     program.parse(process.argv)
+    program.parse(process.argv)
 
 }, 400)

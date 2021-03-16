@@ -1,26 +1,27 @@
 {
-  "name": "quickjs-app-cli",
-  "version": "2.1.0",
-  "description": "QuickJS CLI",
-  "main": "cli.js",
-  "bin": {
-    "quick": "cli.js"
-  },
-  "keywords": [
-    "cli",
-    "quickjs-component",
-    "quickjs"
-  ],
-  "author": "Kehinde Akinsanya",
-  "license": "MIT",
-  "dependencies": {
-    "chalk": "^4.1.0",
-    "clear": "^0.1.0",
-    "cli-spinner": "^0.2.10",
-    "commander": "^7.1.0",
-    "figlet": "^1.5.0",
-    "inquirer": "^8.0.0",
-    "ip": "^1.1.5",
-    "shelljs": "^0.8.4"
-  }
+    "name": "quickjs-app-cli",
+    "version": "2.5.0",
+    "description": "QuickJS CLI",
+    "main": "cli.js",
+    "bin": {
+        "quick": "cli.js"
+    },
+    "keywords": [
+        "cli",
+        "quickjs-component",
+        "quickjs"
+    ],
+    "author": "Kehinde Akinsanya",
+    "license": "MIT",
+    "dependencies": {
+        "chalk": "^4.1.0",
+        "clear": "^0.1.0",
+        "cli-spinner": "^0.2.10",
+        "commander": "^7.1.0",
+        "figlet": "^1.5.0",
+        "inquirer": "^8.0.0",
+        "ip": "^1.1.5",
+        "ora": "^5.3.0",
+        "shelljs": "^0.8.4"
+    }
 }
