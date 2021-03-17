@@ -16,6 +16,7 @@ if (!shell.which('git')) {
 
 console.log(chalk.blue('Quick CLI 2.6.0'));
 
+
 figlet('QUICK JS!!', function (err, data) {
     if (err) {
         console.log(chalk.yellowBright('Something went wrong...'));
@@ -48,7 +49,7 @@ setTimeout(() => {
                 .then(answers => {
                     if (answers["default"]) {
                         spinner.start()
-                        spinner.text = chalk.blue("Creating a Quickjs App")
+                        spinner.text = chalk.blue("Creating a QuickJS App")
                         setTimeout(() => {
                             spinner.text = chalk.blue("Cloning create-quick-app from github")
                         }, 2000)
@@ -58,7 +59,13 @@ setTimeout(() => {
                         }, 5000);
                         setTimeout(() => {
                             spinner.stop()
-                            console.log(chalk.greenBright('😀 Happy Coding'))
+                            console.log(chalk.greenBright('😀 Happy Coding'));
+                            console.log(chalk.whiteBright(`Success! created ${answers.projectName} at ${shell.exec("pwd")}`))
+                            console.log(chalk.whiteBright(`You can now run this commands:\n`));
+                            console.log(chalk.blueBright("Quick Serve"));
+                            console.log(chalk.whiteBright("Starts the development server.\n"))
+                            console.log(chalk.blueBright("Quick build"));
+                            console.log(chalk.whiteBright("Builds the app for production."));
                         }, 6000)
                     }
                 })
@@ -77,7 +84,7 @@ setTimeout(() => {
         .description("Create a new quickjs project")
         .action((projectName) => {
             spinner.start()
-            spinner.text = chalk.blue("Creating a Quickjs App")
+            spinner.text = chalk.blue("Creating a QuickJS App")
             setTimeout(() => {
                 spinner.text = chalk.blue("Cloning create-quick-app from github")
             }, 2000)
@@ -87,7 +94,13 @@ setTimeout(() => {
             }, 5000);
             setTimeout(() => {
                 spinner.stop()
-                console.log(chalk.greenBright('😀 Happy Coding'))
+                console.log(chalk.greenBright('😀 Happy Coding'));
+                console.log(chalk.whiteBright(`Success! created ${projectName} at ${shell.exec("pwd")}`));
+                console.log(chalk.whiteBright(`You can now run this commands:\n`));
+                console.log(chalk.blueBright("Quick Serve"));
+                console.log(chalk.whiteBright("Starts the development server.\n"));
+                console.log(chalk.blueBright("Quick build"));
+                console.log(chalk.whiteBright("Builds the app for production."));
             }, 6000)
         });
     program
