@@ -14,7 +14,7 @@ if (!shell.which('git')) {
     shell.exit(1);
 }
 
-console.log(chalk.blue('Quick CLI 2.8.0'));
+console.log(chalk.blue('Quick CLI 2.9.0'));
 
 
 figlet('QUICK JS!!', function (err, data) {
@@ -29,7 +29,7 @@ figlet('QUICK JS!!', function (err, data) {
 
 
 setTimeout(() => {
-    program.version("2.8.0");
+    program.version("2.9.0");
 
     program
         .command("start")
@@ -60,7 +60,8 @@ setTimeout(() => {
                         setTimeout(() => {
                             spinner.stop()
                             console.log(chalk.greenBright('😀 Happy Coding'));
-                            console.log(chalk.whiteBright(`Success! created ${answers.projectName} at ${shell.exec("pwd")}`))
+                            process.platform === "win32" ? console.log(chalk.whiteBright(`Success! created ${answers.projectName} at ${shell.exec("echo %cd%")}`)) :
+                                console.log(chalk.whiteBright(`Success! created ${answers.projectName} at ${shell.exec("pwd")}`));
                             console.log(chalk.whiteBright(`You can now run this commands:\n`));
                             console.log(chalk.blueBright("Quick Serve"));
                             console.log(chalk.whiteBright("Starts the development server.\n"))
@@ -95,7 +96,8 @@ setTimeout(() => {
             setTimeout(() => {
                 spinner.stop()
                 console.log(chalk.greenBright('😀 Happy Coding'));
-                console.log(chalk.whiteBright(`Success! created ${projectName} at ${shell.exec("pwd")}`));
+                process.platform === "win32" ? console.log(chalk.whiteBright(`Success! created ${projectName} at ${shell.exec("echo %cd%")}`)) :
+                    console.log(chalk.whiteBright(`Success! created ${projectName} at ${shell.exec("pwd")}`));
                 console.log(chalk.whiteBright(`You can now run this commands:\n`));
                 console.log(chalk.blueBright("Quick Serve"));
                 console.log(chalk.whiteBright("Starts the development server.\n"));
